@@ -1,0 +1,60 @@
+{
+  "name": "mcp-shift",
+  "version": "0.1.0",
+  "description": "Migration toolkit for the MCP 2026-07-28 stateless spec revision: conformance lint, codemod, and a bidirectional old/new protocol compatibility proxy.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "migration",
+    "codemod",
+    "lint",
+    "proxy",
+    "2026-07-28"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "mcp-shift": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README.zh.md",
+    "README.ja.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node -e \"require('fs').chmodSync('dist/cli.js', 0o755)\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.9",
+    "vitest": "^3.2.4"
+  },
+  "author": "JaydenCJ",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaydenCJ/mcp-shift.git"
+  },
+  "homepage": "https://github.com/JaydenCJ/mcp-shift#readme",
+  "bugs": {
+    "url": "https://github.com/JaydenCJ/mcp-shift/issues"
+  }
+}

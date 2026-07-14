@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="624" viewBox="0 0 940 624" role="img" aria-label="mcp-shift demo: lint, codemod, detect and proxy commands with their real output">
+<title>mcp-shift demo — real terminal output</title>
+<rect width="940" height="624" rx="10" fill="#0d1117"/>
+<rect width="940" height="34" rx="10" fill="#161b22"/>
+<rect y="24" width="940" height="10" fill="#161b22"/>
+<circle cx="22" cy="17" r="6" fill="#ff5f57"/>
+<circle cx="42" cy="17" r="6" fill="#febc2e"/>
+<circle cx="62" cy="17" r="6" fill="#28c840"/>
+<text x="470" y="21" text-anchor="middle" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="12" fill="#8b949e">mcp-shift — migrate MCP servers to the 2026-07-28 stateless spec</text>
+<text x="20" y="58" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" font-weight="bold" fill="#7ee787" xml:space="preserve">$ mcp-shift lint examples/v1-server</text>
+<text x="20" y="79" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" font-weight="bold" fill="#e6edf3" xml:space="preserve">examples/v1-server/src/server.ts</text>
+<text x="20" y="100" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#f85149" xml:space="preserve">  6:27   error  Import from v1 package '@modelcontextprotocol/sdk/server/mcp.js' ...  [v2-import-path]</text>
+<text x="20" y="121" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#f85149" xml:space="preserve">  11:3   error  'McpError' is renamed to 'ProtocolError' in SDK v2.  [v2-renamed-symbol]</text>
+<text x="20" y="142" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#f85149" xml:space="preserve">  20:8   error  server.tool() variadic overload is removed in v2 ...  [v2-variadic-registration]</text>
+<text x="20" y="163" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#d29922" xml:space="preserve">  26:58  warn   'extra.sessionId' is 2025-era only: 2026-07-28 removes protocol sessions ...  [2026-session-usage]</text>
+<text x="20" y="184" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#8b949e" xml:space="preserve">  ...</text>
+<text x="20" y="205" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" font-weight="bold" fill="#e6edf3" xml:space="preserve">22 problems (20 errors, 2 warnings) — 19 fixable with `mcp-shift codemod --write`</text>
+<text x="20" y="247" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" font-weight="bold" fill="#7ee787" xml:space="preserve">$ mcp-shift codemod --write examples/v1-server</text>
+<text x="20" y="268" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#7ee787" xml:space="preserve">Applied 21 fixes across 2 files.</text>
+<text x="20" y="289" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#c9d1d9" xml:space="preserve">2 finding(s) need manual review:</text>
+<text x="20" y="310" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#8b949e" xml:space="preserve">  src/server.ts:20:56  [2026-session-usage] 'ctx.sessionId' is 2025-era only ...</text>
+<text x="20" y="352" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" font-weight="bold" fill="#7ee787" xml:space="preserve">$ mcp-shift detect http://127.0.0.1:3999/</text>
+<text x="20" y="373" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#c9d1d9" xml:space="preserve">era:              2026-07-28 (stateless)</text>
+<text x="20" y="394" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#c9d1d9" xml:space="preserve">serverInfo:       {"name":"demo-modern-server","version":"1.0.0"}</text>
+<text x="20" y="436" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" font-weight="bold" fill="#7ee787" xml:space="preserve">$ mcp-shift proxy --upstream http://127.0.0.1:3999/ --listen 6277 &amp;</text>
+<text x="20" y="457" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" font-weight="bold" fill="#7ee787" xml:space="preserve">$ node examples/legacy-client.mjs http://127.0.0.1:6277/</text>
+<text x="20" y="478" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#c9d1d9" xml:space="preserve">[legacy-client] initialize → demo-modern-server (protocol 2025-11-25, session a52a2b5d…)</text>
+<text x="20" y="499" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#c9d1d9" xml:space="preserve">[legacy-client] tools/list → echo, pick-color</text>
+<text x="20" y="520" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#c9d1d9" xml:space="preserve">[legacy-client] tools/call 'echo' → echo: hello from 2025</text>
+<text x="20" y="541" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#79c0ff" xml:space="preserve">[legacy-client] ← elicitation/create → "Pick a color" — answering: teal</text>
+<text x="20" y="562" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#c9d1d9" xml:space="preserve">[legacy-client] tools/call 'pick-color' → you picked teal</text>
+<text x="20" y="583" font-family="SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace" font-size="13" fill="#7ee787" xml:space="preserve">[legacy-client] done — a 2025 client just used a stateless 2026-07-28 server.</text>
+</svg>
